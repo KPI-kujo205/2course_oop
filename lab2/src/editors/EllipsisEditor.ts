@@ -17,13 +17,13 @@ class EllipsisEditor implements ShapeEditor{
 
     onMouseMove(event:MouseEvent) {
         if(!this.startedPaint)return;
-        this.elipsis.changeRadius(event);
+        this.elipsis.changePosition(event);
         this.elipsis.paintOutline(this.ctx);
     }
 
     onPaintEnd(event:MouseEvent) {
         this.startedPaint=false;
-        this.elipsis.changeRadius(event);
+        this.elipsis.changePosition(event);
         return this.elipsis;
     }
 

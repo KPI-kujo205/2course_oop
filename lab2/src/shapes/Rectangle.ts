@@ -15,15 +15,22 @@ export default class Rectangle extends Shape{
     }
 
     paint(ctx:CanvasRenderingContext2D){
-        const originalFillStyle=ctx.fillStyle;
-        ctx.strokeRect(this.x0,this.y0,this.x-this.x0,this.y-this.y0);
-        ctx.fillStyle = "rgb(248,235,58)";
-        ctx.fillRect(this.x0,this.y0,this.x-this.x0,this.y-this.y0);
-        ctx.fillStyle=originalFillStyle;
+        const deltaX=this.x-this.x0;
+        const deltaY=this.y-this.y0;
+
+        ctx.strokeRect(this.x0-deltaX,this.y0-deltaY,2*deltaX,2*deltaY);
     }
 
     paintOutline(ctx:CanvasRenderingContext2D){
-        ctx.strokeRect(this.x0,this.y0,this.x-this.x0,this.y-this.y0);
+        const deltaX=this.x-this.x0;
+        const deltaY=this.y-this.y0;
+
+
+        const originalStrokeStyle=ctx.fillStyle;
+        ctx.strokeStyle = "rgb(248,32,87)";
+        ctx.strokeRect(this.x0-deltaX,this.y0-deltaY,2*deltaX,2*deltaY);
+
+        ctx.strokeStyle=originalStrokeStyle;
     }
 
 }
