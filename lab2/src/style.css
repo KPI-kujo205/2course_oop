@@ -97,7 +97,7 @@ button:hover {
   &>ul{
     display: flex;
     gap: 1rem;
-    padding-inline-start: 0px;
+    padding-inline-start: 0;
     &>li{
       display: flex;
       flex-direction: column;
