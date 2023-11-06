@@ -33,9 +33,6 @@ jobs:
       - name: Change default branch
         run:
           git branch -m main
-      - name: cd to lab2
-        run:
-          cd lab2
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
@@ -51,7 +48,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload dist repository
-          path: './dist'
+          path: './lab2/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
