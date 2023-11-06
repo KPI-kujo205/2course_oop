@@ -119,6 +119,12 @@ main{
     width: 800px;
     border: 2px solid grey;
     border-radius: 6px;
+    transition: all ease-in-out .25s;
+
+  }
+  .painting{
+    border: 2px solid #b7b7b7;
+    cursor: crosshair;
   }
 }
 
@@ -158,8 +164,19 @@ main{
 #point-btn{
   background-image: url("./assets/svg/point.svg");
 }
+#cube-btn{
+  background-image: url("./assets/svg/cube.svg");
+}
+#lineOO-btn{
+  background-image: url("./assets/svg/lineOO.svg");
+}
 
 
 .selected{
   border: 2px solid springgreen !important;
+}
+
+.color-input{
+  width: 75%;
+  align-self: center;
 }

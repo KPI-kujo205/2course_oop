@@ -1,109 +1,146 @@
 import Shape from "./shapes/Shape.ts";
-import EllipsisEditor from "./editors/EllipsisEditor.ts";
-import ShapeEditor from "./editors/ShapeEditor.ts";
-import RectangleEditor from "./editors/RectangleEditor.ts";
-import LineEditor from "./editors/LineEditor.ts";
-import PointEditor from "./editors/PointEditor.ts";
-
-enum EditorType{
-    RectangleEditor,
-    EllipsisEditor,
-    LineEditor,
-    PointEditor
+import Line from "./shapes/Line.ts";
+import Point from "./shapes/Point.ts";
+import Ellipsis from "./shapes/Elipsis.ts";
+import Rectangle from "./shapes/Rectangle.ts";
+import Cube from "./shapes/Cube.ts";
+import LineOO from "./shapes/LineOO.ts";
+enum ShapeType{
+    Rectangle,
+    Ellipsis,
+    Line,
+    Point,
+    Cube,
+    LineOO
 }
 
-const HTMLInputElement:Record<EditorType, string> = {
-    [EditorType.RectangleEditor]:'Прямокутник',
-    [EditorType.EllipsisEditor]:'Еліпс',
-    [EditorType.LineEditor]:'Лінія',
-    [EditorType.PointEditor]:'Крапка'
+const TitleMapper:Record<ShapeType, string> = {
+    [ShapeType.Rectangle]:'Прямокутник',
+    [ShapeType.Ellipsis]:'Еліпс',
+    [ShapeType.Line]:'Лінія',
+    [ShapeType.Point]:'Крапка',
+    [ShapeType.Cube]:'Куб',
+    [ShapeType.LineOO]:'Гантеля'
 }
 
-
-class ShapesObjectEditor{
+class MyEditor{
+    private canvas:HTMLCanvasElement;
     private ctx:CanvasRenderingContext2D;
-    private editor!:ShapeEditor;
     private toolbarButtons!:HTMLInputElement[];
-    constructor(public shapes:Shape[]=[]) {
-        const canvas = document.getElementById('canvas') as HTMLCanvasElement;
-        const menu= document.getElementById('objects_menu') as HTMLSelectElement;
-        this.ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
-        this.configureEditor(+menu.value as EditorType)
+    private selectedShape: ShapeType = ShapeType.Rectangle;
+    private currentShape: Shape | undefined;
+    private isPainting:boolean=false;
+    private fillColor:string='#000000';
+    private outlineColor:string='#64ff00';
 
-        menu.addEventListener('change',(_)=> this.configureEditor(+menu.value as EditorType))
-        canvas.addEventListener('mousedown',(e)=>this.editor.onPaintStart(e))
-        canvas.addEventListener('mousemove', (e)=>{
-            this.repaint();
-            this.editor.onMouseMove(e)
+    constructor(public shapes:Shape[]=[]) {
+        this.canvas = document.getElementById('canvas') as HTMLCanvasElement;
+        this.ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
+
+        this.canvas.addEventListener('mousedown',(event)=> {
+            this.startShapePaint(event)
         })
-        canvas.addEventListener('mouseup',(e)=> {
-            this.shapes.push(this.editor.onPaintEnd(e))
+
+        this.canvas.addEventListener('mousemove', (e)=>{
+            this.paintShape(e)
+        })
+        this.canvas.addEventListener('mouseup',(e)=> {
+           this.endShapePaint(e)
         })
         this.configureToolbar()
         this.configureAdditionalTools();
 
     }
-    repaint(){
+
+    private startShapePaint(event:MouseEvent  ){
+        this.isPainting=true;
+        switch (this.selectedShape){
+            case ShapeType.Rectangle:
+                this.currentShape=new Rectangle(event, this.ctx,this.fillColor,this.outlineColor);
+                break;
+            case ShapeType.Ellipsis:
+                this.currentShape=new Ellipsis(event, this.ctx,this.fillColor,this.outlineColor);
+                break;
+            case ShapeType.Line:
+                this.currentShape=new Line(event, this.ctx,this.fillColor,this.outlineColor);
+                break;
+            case ShapeType.Point:
+                this.currentShape=new Point(event, this.ctx,this.fillColor,this.outlineColor);
+                break;
+            case ShapeType.Cube:
+                this.currentShape=new Cube(event, this.ctx,this.fillColor,this.outlineColor);
+                break;
+            case ShapeType.LineOO:
+                this.currentShape=new LineOO(event, this.ctx,this.fillColor,this.outlineColor);
+                break;
+        }
+    };
+    private paintShape(_:MouseEvent) {
+        if(!this.isPainting) return;
+        this.canvas.classList.add('painting')
+        this.repaintShapes();
+        this.currentShape?.changePosition(_);
+        this.currentShape?.paintOutline(this.ctx);
+    };
+    private endShapePaint(_:MouseEvent){
+        if(this.currentShape===undefined)return
+        this.isPainting=false;
+        this.shapes.push(this.currentShape as Shape)
+        this.canvas.classList.remove('painting')
+        this.repaintShapes()
+
+    }
+    private repaintShapes(){
         this.ctx.clearRect(0,0,this.ctx.canvas.width,this.ctx.canvas.height)
         for (const shape of this.shapes) {
             shape.paint(this.ctx);
         }
     }
-
-    configureEditor(type:EditorType){
-        switch (type) {
-            case EditorType.RectangleEditor:
-                this.editor = new RectangleEditor(this.ctx);
-                break;
-            case EditorType.EllipsisEditor:
-                this.editor = new EllipsisEditor(this.ctx);
-                break;
-            case EditorType.LineEditor:
-                this.editor = new LineEditor(this.ctx);
-                break;
-            case EditorType.PointEditor:
-                this.editor = new PointEditor(this.ctx);
-                break;
-        }
-        const title=document.querySelector('title') as HTMLTitleElement;
-        title.innerText=HTMLInputElement[type];
-    }
-
-    configureToolbar(){
-        this.toolbarButtons=['#ellipsis-btn','#line-btn','#rectangle-btn','#point-btn'].map((btn)=>document.querySelector(btn) as HTMLInputElement);
-
-        //for styling
+    private configureToolbar(){
+        this.toolbarButtons=['#ellipsis-btn','#line-btn','#rectangle-btn','#point-btn','#cube-btn','#lineOO-btn'].map((btn)=>document.querySelector(btn) as HTMLInputElement);
          for(const button of this.toolbarButtons){
-            button.addEventListener('click',this.onToolbarButtonClick.bind(this))
+            button.addEventListener('click',this.setActiveShapeButton.bind(this))
         }
-
-
     }
-    configureAdditionalTools(){
+    private configureAdditionalTools(){
         const cleanButton=document.querySelector('#clean-btn') as HTMLButtonElement;
         const backButton=document.querySelector('#back-btn') as HTMLButtonElement;
+        const fillColorInput=document.querySelector('#fill-color') as HTMLInputElement;
+        const outlineColorInput=document.querySelector('#outline-color') as HTMLInputElement;
+
 
         cleanButton.addEventListener('click',()=>{
             this.shapes=[];
-            this.repaint()
+            this.repaintShapes()
         })
 
         backButton.addEventListener('click',()=>{
             this.shapes.pop();
-            this.repaint()
+            this.repaintShapes()
+        })
+
+        fillColorInput.addEventListener('change',()=>{
+            this.fillColor=fillColorInput.value;
+        })
+
+        outlineColorInput.addEventListener('change',()=>{
+            this.outlineColor=outlineColorInput.value;
         })
 
     }
-
-    onToolbarButtonClick(event:MouseEvent){
+    private setActiveShapeButton(event:MouseEvent){
         const targetedButton=event.target as HTMLInputElement;
         this.toolbarButtons.forEach(b=>b.classList.remove('selected'))
         targetedButton.classList.add('selected')
-        this.configureEditor(+targetedButton.value)
+
+        this.selectedShape= +targetedButton.value;
+
+        const title=document.querySelector('title') as HTMLTitleElement;
+        title.innerText=TitleMapper[this.selectedShape];
     }
 
 
 
 
 }
-export default ShapesObjectEditor;
+export default MyEditor;

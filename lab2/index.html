@@ -3,43 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Лабораторна робота 2</title>
+    <title>Прямокутник</title>
   </head>
   <body>
     <header >
       <nav class="navbar">
         <ul>
-          <li>
-            <label for="file">Файл</label>
-            <select id="file">
-              <option value="0">Створити файл</option>
-              <option value="1">Зберегти файл</option>
-              <option value="2">Відкрити файл</option>
-            </select>
-          </li>
-          <li>
-            <label for="objects_menu">Об'єкти</label>
-            <select id="objects_menu">
-              <option value="0">Прямокутник</option>
-              <option value="1">Еліпс</option>
-              <option value="2">Лінія</option>
-              <option value="3"> Крапка</option>
-            </select>
-          </li>
-          <li>
-            <label for="objects_menu">Довідка</label>
-            <select id="faq">
-              <option value="0">Прямокутник</option>
-              <option value="1"> Еліпс</option>
-              <option value="2">Лінія</option>
-              <option value="3"> Крапка</option>
-            </select>
-          </li>
           <li>Тулбар <menu id="toolbar">
-            <input type="button" title="Прямокутник" id="rectangle-btn" value="0">
+            <input type="button" title="Прямокутник" id="rectangle-btn" value="0" class="selected">
             <input type="button" title="Еліпс" id="ellipsis-btn" value="1">
             <input type="button" title="Лінія" id="line-btn" value="2">
             <input type="button" title="Крапка" id="point-btn" value="3">
+              <input type="button" title="Куб" id="cube-btn" value="4">
+              <input type="button" title="Гантеля" id="lineOO-btn" value="5">
           </menu></li>
 
           <li>Допоміжні інструменти
@@ -54,6 +30,14 @@
             </span>
 
           </li>
+
+            <li>Колір заливки
+                <input type="color" id="fill-color" value="#000000" class="color-input">
+            </li>
+
+            <li>Колір гумового сліду
+                <input type="color" id="outline-color" value="#64ff00" class="color-input">
+            </li>
 
 
 
