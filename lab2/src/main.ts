@@ -1,4 +1,4 @@
 import './style.css'
-import ShapesObjectsEditor from './ShapesObjectsEditor.ts'
+import MyEditor from "./MyEditor.ts";
 
-const lab3 = new ShapesObjectsEditor();
+const lab4 = new MyEditor();
