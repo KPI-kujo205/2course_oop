@@ -138,9 +138,5 @@ class MyEditor{
         const title=document.querySelector('title') as HTMLTitleElement;
         title.innerText=TitleMapper[this.selectedShape];
     }
-
-
-
-
 }
 export default MyEditor;
