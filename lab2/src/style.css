@@ -66,22 +66,20 @@ h1 {
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  border: 1px solid springgreen;
+  padding: 0.2em .6em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: transparent;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #ddec0a;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+
+
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -98,8 +96,8 @@ button:focus-visible {
 .navbar{
   &>ul{
     display: flex;
-    gap: 2rem;
-    padding-inline-start: 0px;
+    gap: 1rem;
+    padding-inline-start: 0;
     &>li{
       display: flex;
       flex-direction: column;
@@ -119,12 +117,66 @@ main{
   & canvas{
     height: 500px;
     width: 800px;
-    border: 1px solid grey;
+    border: 2px solid grey;
     border-radius: 6px;
+    transition: all ease-in-out .25s;
+
+  }
+  .painting{
+    border: 2px solid #b7b7b7;
+    cursor: crosshair;
   }
 }
 
 
 #object_mode{
   font-weight: 600;
+}
+
+
+#toolbar{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+  & input{
+    width: 34px;
+    height: 34px;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    color: transparent;
+
+  }
+}
+
+#ellipsis-btn{
+  background-image: url("./assets/svg/ellipsis.svg");
+
+}
+#rectangle-btn{
+  background-image: url("./assets/svg/rectangle.svg");
+}
+#line-btn{
+  background-image: url("./assets/svg/line.svg");
+}
+#point-btn{
+  background-image: url("./assets/svg/point.svg");
+}
+#cube-btn{
+  background-image: url("./assets/svg/cube.svg");
+}
+#lineOO-btn{
+  background-image: url("./assets/svg/lineOO.svg");
+}
+
+
+.selected{
+  border: 2px solid springgreen !important;
+}
+
+.color-input{
+  width: 75%;
+  align-self: center;
 }
