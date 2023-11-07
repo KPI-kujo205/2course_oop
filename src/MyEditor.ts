@@ -5,29 +5,12 @@ import Ellipsis from "./shapes/Elipsis.ts";
 import Rectangle from "./shapes/Rectangle.ts";
 import Cube from "./shapes/Cube.ts";
 import LineOO from "./shapes/LineOO.ts";
-enum ShapeType{
-    Rectangle,
-    Ellipsis,
-    Line,
-    Point,
-    Cube,
-    LineOO
-}
 
-const TitleMapper:Record<ShapeType, string> = {
-    [ShapeType.Rectangle]:'Прямокутник',
-    [ShapeType.Ellipsis]:'Еліпс',
-    [ShapeType.Line]:'Лінія',
-    [ShapeType.Point]:'Крапка',
-    [ShapeType.Cube]:'Куб',
-    [ShapeType.LineOO]:'Гантеля'
-}
 
 class MyEditor{
     private canvas:HTMLCanvasElement;
     private ctx:CanvasRenderingContext2D;
     private toolbarButtons!:HTMLInputElement[];
-    private selectedShape: ShapeType = ShapeType.Rectangle;
     private currentShape: Shape | undefined;
     private isPainting:boolean=false;
     private fillColor:string='#000000';
@@ -54,26 +37,7 @@ class MyEditor{
 
     private startShapePaint(event:MouseEvent  ){
         this.isPainting=true;
-        switch (this.selectedShape){
-            case ShapeType.Rectangle:
-                this.currentShape=new Rectangle(event, this.ctx,this.fillColor,this.outlineColor);
-                break;
-            case ShapeType.Ellipsis:
-                this.currentShape=new Ellipsis(event, this.ctx,this.fillColor,this.outlineColor);
-                break;
-            case ShapeType.Line:
-                this.currentShape=new Line(event, this.ctx,this.fillColor,this.outlineColor);
-                break;
-            case ShapeType.Point:
-                this.currentShape=new Point(event, this.ctx,this.fillColor,this.outlineColor);
-                break;
-            case ShapeType.Cube:
-                this.currentShape=new Cube(event, this.ctx,this.fillColor,this.outlineColor);
-                break;
-            case ShapeType.LineOO:
-                this.currentShape=new LineOO(event, this.ctx,this.fillColor,this.outlineColor);
-                break;
-        }
+        this.currentShape=this.currentShape?.getInstance(event,this.ctx,this.fillColor,this.outlineColor);
     };
     private paintShape(_:MouseEvent) {
         if(!this.isPainting) return;
@@ -98,8 +62,37 @@ class MyEditor{
     }
     private configureToolbar(){
         this.toolbarButtons=['#ellipsis-btn','#line-btn','#rectangle-btn','#point-btn','#cube-btn','#lineOO-btn'].map((btn)=>document.querySelector(btn) as HTMLInputElement);
-         for(const button of this.toolbarButtons){
-            button.addEventListener('click',this.setActiveShapeButton.bind(this))
+
+        this.toolbarButtons[0].addEventListener('click',()=>{
+            this.currentShape=new Ellipsis(new MouseEvent('click'), this.ctx,this.fillColor,this.outlineColor);
+        })
+
+        this.toolbarButtons[1].addEventListener('click',()=>{
+            this.currentShape=new Line(new MouseEvent('click'), this.ctx,this.fillColor,this.outlineColor);
+        })
+
+        this.toolbarButtons[2].addEventListener('click',()=>{
+            this.currentShape=new Rectangle(new MouseEvent('click'), this.ctx,this.fillColor,this.outlineColor);
+        })
+
+        this.toolbarButtons[3].addEventListener('click',()=>{
+            this.currentShape=new Point(new MouseEvent('click'), this.ctx,this.fillColor,this.outlineColor);
+        })
+
+        this.toolbarButtons[4].addEventListener('click',()=>{
+            this.currentShape=new Cube(new MouseEvent('click'), this.ctx,this.fillColor,this.outlineColor);
+        })
+
+        this.toolbarButtons[5].addEventListener('click',()=>{
+            this.currentShape=new LineOO(new MouseEvent('click'), this.ctx,this.fillColor,this.outlineColor);
+        })
+
+        for(const button of this.toolbarButtons){
+            button.addEventListener('click',(event)=>{
+                const targetedButton=event.target as HTMLInputElement;
+                this.toolbarButtons.forEach(b=>b.classList.remove('selected'))
+                targetedButton.classList.add('selected')
+            })
         }
     }
     private configureAdditionalTools(){
@@ -127,16 +120,6 @@ class MyEditor{
             this.outlineColor=outlineColorInput.value;
         })
 
-    }
-    private setActiveShapeButton(event:MouseEvent){
-        const targetedButton=event.target as HTMLInputElement;
-        this.toolbarButtons.forEach(b=>b.classList.remove('selected'))
-        targetedButton.classList.add('selected')
-
-        this.selectedShape= +targetedButton.value;
-
-        const title=document.querySelector('title') as HTMLTitleElement;
-        title.innerText=TitleMapper[this.selectedShape];
     }
 }
 export default MyEditor;

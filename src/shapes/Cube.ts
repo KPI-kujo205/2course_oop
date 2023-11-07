@@ -2,10 +2,6 @@ import Shape from "./Shape.ts";
 import Rectangle from "./Rectangle.ts";
 import Line from "./Line.ts";
 
-const horizontalOffset=(line:number)=>line*.5
-const verticalOffset=(line:number)=>line*.33
-
-
 export default class Cube extends Shape{
     private frontRectangle:Rectangle;
     private backRectangle:Rectangle;
@@ -16,7 +12,7 @@ export default class Cube extends Shape{
 
 
     constructor(event:MouseEvent, ctx:CanvasRenderingContext2D,fillColor:string, outlineColor:string){
-        super(event,ctx,fillColor,outlineColor);
+        super(event,ctx,fillColor,outlineColor,'Куб');
         this.frontRectangle=new Rectangle(event,ctx,'rgba(0,0,0,0)',outlineColor);
         this.backRectangle=new Rectangle(event,ctx,'rgba(0,0,0,0)',outlineColor);
         this.topLeftLine=new Line(event,ctx,'rgba(0,0,0,0)',outlineColor);
@@ -83,6 +79,8 @@ export default class Cube extends Shape{
 
     }
 
-
+    getInstance(event:MouseEvent, ctx:CanvasRenderingContext2D, fillColor:string, outlineColor:string){
+        return new Cube(event,ctx,fillColor,outlineColor);
+    };
 }
 

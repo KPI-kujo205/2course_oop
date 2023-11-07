@@ -6,7 +6,7 @@ export default class LineOO extends Shape{
     protected rightEllipsis:Ellipsis;
     protected line:Line;
     constructor(event:MouseEvent, ctx:CanvasRenderingContext2D,fillColor:string, outlineColor:string,) {
-        super(event,ctx,fillColor,outlineColor);
+        super(event,ctx,fillColor,outlineColor,'Гантеля');
         this.leftEllipsis=new Ellipsis(event,ctx,fillColor,outlineColor);
         this.rightEllipsis=new Ellipsis(event,ctx,fillColor,outlineColor);
         this.leftEllipsis.radiusX=10;
@@ -33,5 +33,10 @@ export default class LineOO extends Shape{
         this.leftEllipsis.paint(ctx);
         this.rightEllipsis.paint(ctx);
     }
+
+    getInstance(event:MouseEvent, ctx:CanvasRenderingContext2D, fillColor:string, outlineColor:string){
+        return new LineOO(event,ctx,fillColor,outlineColor);
+    };
+
 
 }

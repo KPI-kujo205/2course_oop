@@ -4,7 +4,7 @@ export default class Line extends Shape{
     public y:number;
 
     constructor(event:MouseEvent, ctx:CanvasRenderingContext2D,fillColor:string, outlineColor:string){
-        super(event,ctx,fillColor,outlineColor);
+        super(event,ctx,fillColor,outlineColor,'Лінія');
         this.x=this.x0;
         this.y=this.y0;
     }
@@ -36,6 +36,10 @@ export default class Line extends Shape{
         ctx.lineTo(this.x, this.y);
         ctx.stroke();
     }
+
+    getInstance(event:MouseEvent, ctx:CanvasRenderingContext2D, fillColor:string, outlineColor:string){
+        return new Line(event,ctx,fillColor,outlineColor);
+    };
 
 
 }

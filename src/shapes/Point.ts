@@ -1,7 +1,7 @@
 import Shape from "./Shape";
 export default class Point extends Shape{
     constructor(event:MouseEvent, ctx:CanvasRenderingContext2D,fillColor:string, outlineColor:string){
-        super(event,ctx,fillColor,outlineColor);
+        super(event,ctx,fillColor,outlineColor,'Точка');
     }
     changePosition(event:MouseEvent){
         this.x0=event.clientX-this.offsetX;
@@ -17,5 +17,9 @@ export default class Point extends Shape{
         ctx.strokeStyle=this.outlineColor;
         ctx.fillRect(this.x0,this.y0,3,3);
     }
+
+    getInstance(event:MouseEvent, ctx:CanvasRenderingContext2D, fillColor:string, outlineColor:string){
+        return new Point(event,ctx,fillColor,outlineColor);
+    };
 
 }

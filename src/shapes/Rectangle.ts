@@ -4,7 +4,7 @@ export default class Rectangle extends Shape{
     public y:number;
 
     constructor(event:MouseEvent, ctx:CanvasRenderingContext2D,fillColor:string, outlineColor:string){
-        super(event,ctx,fillColor,outlineColor);
+        super(event,ctx,fillColor,outlineColor,'Прямокутник')
         this.x=this.x0;
         this.y=this.y0;
 
@@ -30,5 +30,9 @@ export default class Rectangle extends Shape{
         ctx.strokeRect(this.x0,this.y0,this.x-this.x0,this.y-this.y0);
         ctx.setLineDash([0,0])
     }
+
+    getInstance(event:MouseEvent, ctx:CanvasRenderingContext2D, fillColor:string, outlineColor:string){
+        return new Rectangle(event,ctx,fillColor,outlineColor);
+    };
 
 }

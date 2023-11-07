@@ -4,7 +4,7 @@ export default class Ellipsis extends Shape{
     public radiusY:number;
 
     constructor(event:MouseEvent, ctx:CanvasRenderingContext2D,fillColor:string, outlineColor:string){
-        super(event,ctx,fillColor,outlineColor);
+        super(event,ctx,fillColor,outlineColor,'Еліпс');
         this.radiusX=0;
         this.radiusY=0;
     }
@@ -32,7 +32,11 @@ export default class Ellipsis extends Shape{
         ctx.ellipse(this.x0,this.y0,this.radiusX,this.radiusY,0,0,2*Math.PI);
         ctx.stroke();
         ctx.setLineDash([0])
-
     }
+
+    getInstance(event:MouseEvent, ctx:CanvasRenderingContext2D, fillColor:string, outlineColor:string){
+        return new Ellipsis(event,ctx,fillColor, outlineColor);
+    };
+
 
 }
