@@ -5,27 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea934954-1960-4a2c-a68c-23c9a8c955a6" name="Changes" comment="made requested changes to the work">
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/svg/cube.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/svg/ellipsis.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/svg/line.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/svg/lineOO.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/svg/point.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/svg/rectangle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/src/code/MyEditor.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/src/code/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/src/code/shapes/Cube.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/src/code/shapes/Ellipsis.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/src/code/shapes/Line.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/src/code/shapes/LineOO.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/src/code/shapes/Point.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/src/code/shapes/Rectangle.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/src/code/shapes/Shape.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/assets/icons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/assets/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/MyEditor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/MyEditor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/shapes/Cube.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Cube.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/shapes/Ellipsis.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Ellipsis.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/shapes/Line.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Line.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/shapes/LineOO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/LineOO.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/shapes/Point.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Point.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/shapes/Rectangle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Rectangle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/shapes/Shape.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Shape.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/renderer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/renderer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,24 +54,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;lab5&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/kujo205/kpi/oop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;/home/kujo205/.nvm/versions/node/v21.1.0/bin/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/kujo205/kpi/oop/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "lab5",
+    "last_opened_file_path": "/home/kujo205/kpi/oop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "/home/kujo205/.nvm/versions/node/v21.1.0/bin/node",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/home/kujo205/kpi/oop/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.nodejs",
+    "ts.external.directory.path": "/home/kujo205/kpi/oop/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/renderer/src" />
+      <recent name="$PROJECT_DIR$/src/renderer" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
