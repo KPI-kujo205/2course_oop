@@ -5,19 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea934954-1960-4a2c-a68c-23c9a8c955a6" name="Changes" comment="made requested changes to the work">
+      <change afterPath="$PROJECT_DIR$/src/renderer/table.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/MyEditor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/MyEditor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/shapes/Cube.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Cube.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/shapes/Ellipsis.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Ellipsis.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/shapes/Line.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Line.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/shapes/LineOO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/LineOO.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/shapes/Point.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Point.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/shapes/Rectangle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Rectangle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/code/shapes/Shape.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Shape.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/renderer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/renderer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Window.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Window.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/preload/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/preload/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/preload/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/preload/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/MyEditor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/MyEditor.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +55,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "lab5",
-    "last_opened_file_path": "/home/kujo205/kpi/oop",
+    "last_opened_file_path": "/home/kujo205/kpi/oop/src/renderer",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -74,6 +69,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/renderer" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/renderer/src" />
       <recent name="$PROJECT_DIR$/src/renderer" />

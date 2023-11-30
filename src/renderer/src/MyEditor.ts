@@ -5,7 +5,9 @@ import Ellipsis from './shapes/Ellipsis'
 import Rectangle from './shapes/Rectangle'
 import Cube from './shapes/Cube'
 import LineOO from './shapes/LineOO'
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { emitNewShapeEvent } from 'api'
 class MyEditor {
   private canvas: HTMLCanvasElement
   private ctx: CanvasRenderingContext2D
@@ -61,7 +63,13 @@ class MyEditor {
     this.shapes.push(this.currentShape as Shape)
     this.canvas.classList.remove('painting')
     this.repaintShapes()
+    this.emitNewShapeEvent()
   }
+
+  private emitNewShapeEvent() {
+    window.electron.ipcRenderer.send('add-shape-event', 'yeah')
+  }
+
   private repaintShapes() {
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height)
     for (const shape of this.shapes) {

@@ -1,5 +1,6 @@
 import { BrowserWindow, BrowserWindowConstructorOptions } from 'electron'
 import { join } from 'path'
+import { is } from '@electron-toolkit/utils'
 
 const defaultProps: BrowserWindowConstructorOptions = {
   width: 900,
@@ -7,8 +8,8 @@ const defaultProps: BrowserWindowConstructorOptions = {
   show: false,
   autoHideMenuBar: true,
   webPreferences: {
-    // nodeIntegration: true,
     devTools: true,
+    sandbox: false,
     preload: join(__dirname, '../preload/index.js')
   }
 }
@@ -18,14 +19,18 @@ interface WindowConstructorParams extends BrowserWindowConstructorOptions {
 }
 class Window extends BrowserWindow {
   constructor({ file, ...windowSettings }: WindowConstructorParams) {
-    console.log(join(__dirname, '../preload/index.js'))
     super({ ...defaultProps, ...windowSettings })
-
-    this.loadFile(file)
 
     this.once('ready-to-show', () => {
       this.show()
     })
+    const fileNameWithoutDir = file.split('/').at(-1)
+
+    if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
+      this.loadURL(process.env['ELECTRON_RENDERER_URL'] + '/' + fileNameWithoutDir)
+    } else {
+      this.loadFile(file)
+    }
   }
 }
 
