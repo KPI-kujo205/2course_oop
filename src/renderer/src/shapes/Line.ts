@@ -1,4 +1,4 @@
-import Shape from './Shape'
+import Shape from './Shape.d'
 export default class Line extends Shape {
   public x: number
   public y: number

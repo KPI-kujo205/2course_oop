@@ -7,15 +7,28 @@ function main(): void {
   const mainWindow = new Window({
     file: join(__dirname, '../renderer/index.html')
   })
-
-  const tableWindow = new Window({
-    file: join(__dirname, '../renderer/table.html'),
-    parent: mainWindow
-  })
-
+  let tableWindow
   ipcMain.on('add-shape-event', (event, arg) => {
     // Request to update the label in the renderer process of the second window
     console.log('someee event', arg)
+  })
+
+  ipcMain.on('toggle-table-window', (event, arg) => {
+    console.log(tableWindow, 'tableWindow')
+    if (tableWindow && tableWindow?.isVisible()) {
+      tableWindow.hide()
+      tableWindow = null
+      return
+    }
+
+    tableWindow = new Window({
+      file: join(__dirname, '../renderer/table.svg.html'),
+      parent: mainWindow,
+      backgroundMaterial: 'mica'
+    })
+    tableWindow.onclose(() => {
+      tableWindow = null
+    })
   })
 
   electronApp.setAppUserModelId('com.electron')

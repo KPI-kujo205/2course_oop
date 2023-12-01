@@ -1,4 +1,4 @@
-import Shape from './Shape'
+import Shape from './Shape.d'
 import Rectangle from './Rectangle'
 import Line from './Line'
 

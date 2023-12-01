@@ -1,4 +1,4 @@
-import Shape from './Shape'
+import Shape from './Shape.d'
 export default class Ellipsis extends Shape {
   public radiusX: number
   public radiusY: number

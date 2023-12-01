@@ -12,7 +12,7 @@ class MyEditor {
   private canvas: HTMLCanvasElement
   private ctx: CanvasRenderingContext2D
   private toolbarButtons!: HTMLInputElement[]
-  private currentShape: Shape | undefined
+  private currentShape: Shape
   private isPainting: boolean = false
   private fillColor: string = '#000000'
   private outlineColor: string = '#64ff00'
@@ -67,7 +67,13 @@ class MyEditor {
   }
 
   private emitNewShapeEvent() {
-    window.electron.ipcRenderer.send('add-shape-event', 'yeah')
+    const shape = this.currentShape.getInstance(
+      this.currentShape.initialEvent,
+      this.ctx,
+      this.fillColor,
+      this.outlineColor
+    )
+    window.electron.ipcRenderer.send('add-shape-event', shape)
   }
 
   private repaintShapes() {
@@ -153,6 +159,7 @@ class MyEditor {
     const backButton = document.querySelector('#back-btn') as HTMLButtonElement
     const fillColorInput = document.querySelector('#fill-color') as HTMLInputElement
     const outlineColorInput = document.querySelector('#outline-color') as HTMLInputElement
+    const toggleTableButton = document.querySelector('#toggle-table-btn') as HTMLInputElement
 
     cleanButton.addEventListener('click', () => {
       this.shapes = []
@@ -170,6 +177,11 @@ class MyEditor {
 
     outlineColorInput.addEventListener('change', () => {
       this.outlineColor = outlineColorInput.value
+    })
+
+    toggleTableButton.addEventListener('click', () => {
+      toggleTableButton.classList.toggle('selected')
+      window.electron.ipcRenderer.send('toggle-table-window', undefined)
     })
   }
 }

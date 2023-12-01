@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="./assets/styles.css" />
+  <link rel="stylesheet" type="text/css" href="./src/styles.css" />
   <title>Прямокутник</title>
 </head>
 <body>
@@ -11,17 +11,16 @@
   <nav class="navbar">
     <ul>
       <li>Тулбар <menu id="toolbar">
-        <input type="button" title="Прямокутник" id="rectangle-btn" value="0" class="selected">
-        <input type="button" title="Еліпс" id="ellipsis-btn" value="1">
-        <input type="button" title="Лінія" id="line-btn" value="2">
-        <input type="button" title="Крапка" id="point-btn" value="3">
-        <input type="button" title="Куб" id="cube-btn" value="4">
-        <input type="button" title="Гантеля" id="lineOO-btn" value="5">
+        <input type="button" title="Прямокутник" id="rectangle-btn" class="selected">
+        <input type="button" title="Еліпс" id="ellipsis-btn" >
+        <input type="button" title="Лінія" id="line-btn" >
+        <input type="button" title="Крапка" id="point-btn">
+        <input type="button" title="Куб" id="cube-btn" >
+        <input type="button" title="Гантеля" id="lineOO-btn">
       </menu></li>
 
       <li>Допоміжні інструменти
         <span>
-
            <button id="back-btn">
               Назад
             </button >
@@ -29,18 +28,17 @@
               Очистити
             </button >
             </span>
-
       </li>
 
       <li>Колір заливки
         <input type="color" id="fill-color" value="#000000" class="color-input">
       </li>
-
       <li>Колір гумового сліду
         <input type="color" id="outline-color" value="#64ff00" class="color-input">
       </li>
-
-
+      <li>Таблиця
+        <input type="button" title="Таблиця" id="toggle-table-btn">
+      </li>
 
     </ul>
   </nav>

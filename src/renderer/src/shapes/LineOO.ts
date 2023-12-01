@@ -1,4 +1,4 @@
-import Shape from './Shape'
+import Shape from './Shape.d'
 import Ellipsis from './Ellipsis'
 import Line from './Line'
 export default class LineOO extends Shape {

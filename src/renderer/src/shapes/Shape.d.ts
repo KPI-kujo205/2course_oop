@@ -4,6 +4,7 @@ export default abstract class Shape {
   public offsetX: number
   public offsetY: number
   public toolbarTitle: string
+  public initialEvent: MouseEvent
 
   protected constructor(
     event: MouseEvent,
@@ -12,6 +13,7 @@ export default abstract class Shape {
     protected outlineColor: string,
     title: string
   ) {
+    this.initialEvent = event
     this.offsetX = ctx.canvas.offsetLeft
     this.offsetY = ctx.canvas.offsetTop
     this.x0 = event.x - this.offsetX
