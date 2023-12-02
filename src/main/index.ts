@@ -2,6 +2,7 @@ import { app, ipcMain, shell } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer } from '@electron-toolkit/utils'
 import Window from './Window'
+import MyTableWindow from './MyTableWindow'
 function main(): void {
   // Create the browser window.
   const mainWindow = new Window({
@@ -14,21 +15,10 @@ function main(): void {
   })
 
   ipcMain.on('toggle-table-window', (event, arg) => {
-    console.log(tableWindow, 'tableWindow')
-    if (tableWindow && tableWindow?.isVisible()) {
-      tableWindow.hide()
-      tableWindow = null
-      return
-    }
-
-    tableWindow = new Window({
-      file: join(__dirname, '../renderer/table.svg.html'),
-      parent: mainWindow,
-      backgroundMaterial: 'mica'
+    const tableWindow = MyTableWindow.prototype.getInstance({
+      file: join(__dirname, '../renderer/table.html')
     })
-    tableWindow.onclose(() => {
-      tableWindow = null
-    })
+    tableWindow.show()
   })
 
   electronApp.setAppUserModelId('com.electron')

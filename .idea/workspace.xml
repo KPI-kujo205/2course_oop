@@ -4,25 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea934954-1960-4a2c-a68c-23c9a8c955a6" name="Changes" comment="made requested changes to the work">
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/svg/table.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/src/MyTable.ts" afterDir="false" />
+    <list default="true" id="ea934954-1960-4a2c-a68c-23c9a8c955a6" name="Changes" comment="added toggle table button">
+      <change afterPath="$PROJECT_DIR$/src/main/MyTableWindow.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Window.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Window.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/renderer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/MyEditor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/MyEditor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/shapes/Cube.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Cube.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/shapes/Ellipsis.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Ellipsis.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/shapes/Line.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Line.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/shapes/LineOO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/LineOO.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/shapes/Point.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Point.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/shapes/Rectangle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Rectangle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/shapes/Shape.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Shape.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/table.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/table.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,27 +45,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "lab5",
-    "last_opened_file_path": "/home/kujo205/kpi/oop/src/renderer",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "/home/kujo205/.nvm/versions/node/v21.1.0/bin/node",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/home/kujo205/kpi/oop/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "/home/kujo205/kpi/oop/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;lab5&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/kujo205/kpi/oop/src/renderer&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;/home/kujo205/.nvm/versions/node/v21.1.0/bin/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/kujo205/kpi/oop/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/kujo205/kpi/oop/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/renderer" />
@@ -110,6 +96,9 @@
       <workItem from="1699963245993" duration="378000" />
       <workItem from="1699963635885" duration="274000" />
       <workItem from="1699963919784" duration="2831000" />
+      <workItem from="1701438757673" duration="220000" />
+      <workItem from="1701544275738" duration="4163000" />
+      <workItem from="1701559045329" duration="614000" />
     </task>
     <task id="LOCAL-00001" summary="changed file structure">
       <option name="closed" value="true" />
@@ -159,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699962533370</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added toggle table button">
+      <option name="closed" value="true" />
+      <created>1701389594778</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701389594778</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +205,7 @@
     <MESSAGE value="changed deploy file extension" />
     <MESSAGE value="base updated" />
     <MESSAGE value="made requested changes to the work" />
-    <option name="LAST_COMMIT_MESSAGE" value="made requested changes to the work" />
+    <MESSAGE value="added toggle table button" />
+    <option name="LAST_COMMIT_MESSAGE" value="added toggle table button" />
   </component>
 </project>

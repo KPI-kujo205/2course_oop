@@ -180,7 +180,6 @@ class MyEditor {
     })
 
     toggleTableButton.addEventListener('click', () => {
-      toggleTableButton.classList.toggle('selected')
       window.electron.ipcRenderer.send('toggle-table-window', undefined)
     })
   }

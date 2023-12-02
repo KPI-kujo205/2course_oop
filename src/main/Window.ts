@@ -14,7 +14,7 @@ const defaultProps: BrowserWindowConstructorOptions = {
   }
 }
 
-interface WindowConstructorParams extends BrowserWindowConstructorOptions {
+export interface WindowConstructorParams extends BrowserWindowConstructorOptions {
   file: string
 }
 class Window extends BrowserWindow {
