@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea934954-1960-4a2c-a68c-23c9a8c955a6" name="Changes" comment="added toggle table button">
-      <change afterPath="$PROJECT_DIR$/src/main/MyTableWindow.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Window.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Window.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/MyEditor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/MyEditor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/MyTable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/MyTable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/table.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/table.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +101,7 @@
       <workItem from="1699963919784" duration="2831000" />
       <workItem from="1701438757673" duration="220000" />
       <workItem from="1701544275738" duration="4163000" />
-      <workItem from="1701559045329" duration="614000" />
+      <workItem from="1701559045329" duration="7586000" />
     </task>
     <task id="LOCAL-00001" summary="changed file structure">
       <option name="closed" value="true" />

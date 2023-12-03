@@ -7,7 +7,6 @@ import Cube from './shapes/Cube'
 import LineOO from './shapes/LineOO'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { emitNewShapeEvent } from 'api'
 class MyEditor {
   private canvas: HTMLCanvasElement
   private ctx: CanvasRenderingContext2D
@@ -63,17 +62,11 @@ class MyEditor {
     this.shapes.push(this.currentShape as Shape)
     this.canvas.classList.remove('painting')
     this.repaintShapes()
-    this.emitNewShapeEvent()
+    this.emitRenderShapesEvent()
   }
 
-  private emitNewShapeEvent() {
-    const shape = this.currentShape.getInstance(
-      this.currentShape.initialEvent,
-      this.ctx,
-      this.fillColor,
-      this.outlineColor
-    )
-    window.electron.ipcRenderer.send('add-shape-event', shape)
+  private emitRenderShapesEvent() {
+    window.electron.ipcRenderer.send('render-shapes-event', this.shapes)
   }
 
   private repaintShapes() {
@@ -180,8 +173,8 @@ class MyEditor {
     })
 
     toggleTableButton.addEventListener('click', () => {
-      window.electron.ipcRenderer.send('toggle-table-window', undefined)
+      window.electron.ipcRenderer.send('show-table-window', undefined)
     })
   }
 }
-export default MyEditor
+export default new MyEditor()

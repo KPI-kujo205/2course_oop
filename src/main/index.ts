@@ -8,17 +8,16 @@ function main(): void {
   const mainWindow = new Window({
     file: join(__dirname, '../renderer/index.html')
   })
-  let tableWindow
-  ipcMain.on('add-shape-event', (event, arg) => {
-    // Request to update the label in the renderer process of the second window
-    console.log('someee event', arg)
-  })
 
-  ipcMain.on('toggle-table-window', (event, arg) => {
+  ipcMain.on('show-table-window', (event, arg) => {
     const tableWindow = MyTableWindow.prototype.getInstance({
       file: join(__dirname, '../renderer/table.html')
     })
     tableWindow.show()
+
+    ipcMain.on('render-shapes-event', (event, shapes) => {
+      tableWindow.webContents.send('render-shapes-table', shapes)
+    })
   })
 
   electronApp.setAppUserModelId('com.electron')

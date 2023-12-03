@@ -177,3 +177,26 @@ main{
   width: 75%;
   align-self: center;
 }
+
+
+#table{
+  border: 1px solid grey;
+  width:100%;
+}
+
+
+#table tbody tr{
+  text-align: center;
+  &:nth-child(odd){
+    background-color: rgba(129, 129, 129, 0.4);
+    &:hover{
+      background-color: rgba(161, 161, 161, 0.4);
+    }
+  }
+  &:nth-child(even){
+    &:hover{
+      background-color: #444343;
+    }
+  }
+
+}
