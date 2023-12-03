@@ -30,7 +30,6 @@ export default class Cube extends Shape {
     const newY = event.clientY - this.offsetY
 
     const dx = newX - this.x0
-    //const cubeWidth = dx * 3
 
     const cubeHeight = newY - this.y0
     const dy = cubeHeight / 4

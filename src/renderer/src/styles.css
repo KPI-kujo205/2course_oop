@@ -105,7 +105,7 @@ ul{
   margin-block-start:0rem;
 }
 main{
-  height: 100%;
+  min-height: 100%;
   & canvas{
     height: 500px;
     width: 800px;
@@ -182,9 +182,15 @@ main{
 #table{
   border: 1px solid grey;
   width:100%;
+  margin-bottom: 1rem;
 }
 
-
+#table thead{
+    position: sticky;
+    top: 0;
+    background: #3a3939;
+    border-bottom:1px solid grey ;
+}
 #table tbody tr{
   text-align: center;
   &:nth-child(odd){
@@ -199,4 +205,12 @@ main{
     }
   }
 
+}
+
+.delete-btn{
+  cursor: pointer;
+  background-image: url("../assets/svg/trash.svg");
+  width: 34px;
+  height: 34px;
+  border: none;
 }

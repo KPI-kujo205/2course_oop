@@ -1,3 +1,4 @@
+import { IpcRendererEvent } from 'electron'
 import Shape from './shapes/Shape'
 import Line from './shapes/Line'
 import Point from './shapes/Point'
@@ -38,6 +39,8 @@ class MyEditor {
     })
     this.configureToolbar()
     this.configureAdditionalTools()
+
+    window.electron.ipcRenderer.on('delete-shape-event', this.hadleDeleteShapeEvent.bind(this))
   }
 
   private startShapePaint(event: MouseEvent) {
@@ -52,7 +55,7 @@ class MyEditor {
   private paintShape(_: MouseEvent) {
     if (!this.isPainting) return
     this.canvas.classList.add('painting')
-    this.repaintShapes()
+    this.rerenderCanvas()
     this.currentShape?.changePosition(_)
     this.currentShape?.paintOutline(this.ctx)
   }
@@ -61,19 +64,24 @@ class MyEditor {
     this.isPainting = false
     this.shapes.push(this.currentShape as Shape)
     this.canvas.classList.remove('painting')
-    this.repaintShapes()
-    this.emitRenderShapesEvent()
+    this.rerenderCanvas()
   }
 
-  private emitRenderShapesEvent() {
-    window.electron.ipcRenderer.send('render-shapes-event', this.shapes)
+  private rerenderCanvas() {
+    this.repaintShapes()
+    this.emitRenderShapesEvent()
+    this.writeShapesToFile()
   }
 
   private repaintShapes() {
-    this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height)
-    for (const shape of this.shapes) {
-      shape.paint(this.ctx)
-    }
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+    this.shapes.forEach((shape) => shape.paint(this.ctx))
+  }
+  private async writeShapesToFile() {
+    window.api.writeFileSync('shapes.json', JSON.stringify(this.shapes))
+  }
+  private emitRenderShapesEvent() {
+    window.electron.ipcRenderer.send('render-shapes-event', this.shapes)
   }
   private configureToolbar() {
     this.toolbarButtons = [
@@ -173,8 +181,13 @@ class MyEditor {
     })
 
     toggleTableButton.addEventListener('click', () => {
-      window.electron.ipcRenderer.send('show-table-window', undefined)
+      window.electron.ipcRenderer.send('show-table-window', this.shapes)
     })
+  }
+
+  private hadleDeleteShapeEvent(_: IpcRendererEvent, shapeId: number) {
+    this.shapes = this.shapes.filter((shape) => shape.id !== shapeId)
+    this.rerenderCanvas()
   }
 }
 export default new MyEditor()

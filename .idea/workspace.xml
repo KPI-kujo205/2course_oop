@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea934954-1960-4a2c-a68c-23c9a8c955a6" name="Changes" comment="added toggle table button">
+      <change afterPath="$PROJECT_DIR$/src/main/Lab5.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/renderer/assets/svg/trash.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/preload/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/preload/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/src/MyEditor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/MyEditor.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/src/MyTable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/MyTable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/shapes/Cube.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Cube.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/shapes/Shape.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Shape.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/table.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/table.html" afterDir="false" />
     </list>
