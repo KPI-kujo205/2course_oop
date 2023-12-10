@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea934954-1960-4a2c-a68c-23c9a8c955a6" name="Changes" comment="added toggle table button">
-      <change afterPath="$PROJECT_DIR$/src/main/Lab5.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/assets/svg/trash.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/preload/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/preload/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/src/MyEditor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/MyEditor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/MyTable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/MyTable.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/shapes/Cube.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Cube.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/shapes/Shape.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/shapes/Shape.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/table.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/table.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +59,7 @@
     &quot;nodejs_interpreter_path&quot;: &quot;/home/kujo205/.nvm/versions/node/v21.1.0/bin/node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/kujo205/kpi/oop/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/home/kujo205/kpi/oop/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -107,6 +97,7 @@
       <workItem from="1701438757673" duration="220000" />
       <workItem from="1701544275738" duration="4163000" />
       <workItem from="1701559045329" duration="7586000" />
+      <workItem from="1701863222329" duration="6000" />
     </task>
     <task id="LOCAL-00001" summary="changed file structure">
       <option name="closed" value="true" />

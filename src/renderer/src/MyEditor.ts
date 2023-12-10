@@ -42,7 +42,6 @@ class MyEditor {
 
     window.electron.ipcRenderer.on('delete-shape-event', this.hadleDeleteShapeEvent.bind(this))
   }
-
   private startShapePaint(event: MouseEvent) {
     this.isPainting = true
     this.currentShape = this.currentShape?.getInstance(
@@ -164,12 +163,12 @@ class MyEditor {
 
     cleanButton.addEventListener('click', () => {
       this.shapes = []
-      this.repaintShapes()
+      this.rerenderCanvas()
     })
 
     backButton.addEventListener('click', () => {
       this.shapes.pop()
-      this.repaintShapes()
+      this.rerenderCanvas()
     })
 
     fillColorInput.addEventListener('change', () => {
