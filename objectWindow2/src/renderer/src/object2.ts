@@ -1,5 +1,4 @@
 import { Lab6FormData,Point } from '../../types'
-
 class Object2 {
   points:Point[] = []
   table: HTMLTableElement
@@ -39,8 +38,7 @@ class Object2 {
   }
 
   private copyPointsToClipboard(){
-
-    // clipboard.writeText(JSON.stringify(this.points))
+    window.electron.ipcRenderer.send('copy-to-clipboard',JSON.stringify(this.points))
   }
   private addRowsToTable() {
     this.table.innerHTML = ''

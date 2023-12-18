@@ -1,8 +1,9 @@
-import { BrowserWindow, BrowserWindowConstructorOptions } from 'electron'
+import { BrowserWindow, BrowserWindowConstructorOptions,ipcMain } from 'electron'
 import { join } from 'path'
 import { is } from '@electron-toolkit/utils'
 import type {Lab6FormData} from "../types";
 import CringeIpc from 'node-ipc'
+import {clipboard} from "electron";
 // @ts-ignore
 const ipc = CringeIpc.default as typeof CringeIpc
 
@@ -39,6 +40,7 @@ class ObjectWindow2 extends BrowserWindow {
     }
 
     this.configureNodeIpc()
+    this.configureClipboard()
 
   }
 
@@ -55,7 +57,11 @@ class ObjectWindow2 extends BrowserWindow {
 
   }
 
-
+  private configureClipboard() {
+    ipcMain.on('copy-to-clipboard', (_, data) => {
+      clipboard.writeText(data)
+    })
+  }
 }
 
 export default ObjectWindow2
