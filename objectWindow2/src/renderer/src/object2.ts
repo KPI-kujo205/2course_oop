@@ -1,3 +1,4 @@
+//@ts-ignore
 import { Lab6FormData,Point } from '../../types'
 class Object2 {
   points:Point[] = []

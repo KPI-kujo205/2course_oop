@@ -1,6 +1,7 @@
 import { BrowserWindow, BrowserWindowConstructorOptions,ipcMain } from 'electron'
 import { join } from 'path'
 import { is } from '@electron-toolkit/utils'
+//@ts-ignore
 import type {Lab6FormData} from "../types";
 import CringeIpc from 'node-ipc'
 import {clipboard} from "electron";
@@ -10,6 +11,8 @@ const ipc = CringeIpc.default as typeof CringeIpc
 const defaultProps: BrowserWindowConstructorOptions = {
   width: 400,
   height: 370,
+  x: 600,
+  y: 0,
   show: false,
   autoHideMenuBar: true,
   webPreferences: {
