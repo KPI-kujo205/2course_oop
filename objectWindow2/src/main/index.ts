@@ -1,11 +1,12 @@
 import { app } from 'electron'
 import { electronApp, optimizer } from '@electron-toolkit/utils'
 import ObjectWindow2 from './ObjectWindow2'
+import {join} from "path";
 
 
 function main(): void {
 
-  new ObjectWindow2({file:'../renderer/index.html'})
+  new ObjectWindow2({file:join(__dirname,'../renderer/index.html')})
 
 
   electronApp.setAppUserModelId('com.electron')

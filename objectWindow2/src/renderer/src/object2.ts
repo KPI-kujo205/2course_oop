@@ -6,6 +6,9 @@ class Object2 {
   constructor() {
     this.table = document.querySelector('#table>tbody') as HTMLTableElement
 
+    window.electron.ipcRenderer.on('logger',(_,data)=>{
+      console.log(data)
+    })
 
     window.electron.ipcRenderer.on('executeButtonClicked', (_, data: Lab6FormData) => {
       this.handleExecuteButtonClicked(data)
@@ -13,6 +16,7 @@ class Object2 {
   }
 
   public handleExecuteButtonClicked(data: Lab6FormData) {
+    const newPoints:Point[] = []
     const xStep = (data.xMax - data.xMin) / data.nPoints
     const yStep = (data.xMax - data.xMin) / data.nPoints
 
@@ -22,18 +26,23 @@ class Object2 {
     for (let i = 0; i < data.nPoints; i++) {
       const point:Point = {
         order: i+1,
-        x: xStart,
-        y: yStart
+        x: +xStart.toFixed(2),
+        y: +yStart.toFixed(2)
       }
-      this.points.push(point)
+      newPoints.push(point)
       xStart+=xStep;
       yStart+=yStep;
     }
-
+    this.points = newPoints
+    this.copyPointsToClipboard()
     this.addRowsToTable()
   }
 
-  public addRowsToTable() {
+  private copyPointsToClipboard(){
+
+    // clipboard.writeText(JSON.stringify(this.points))
+  }
+  private addRowsToTable() {
     this.table.innerHTML = ''
     for (const point of this.points) {
       this.table.innerHTML += `<tr>

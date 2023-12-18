@@ -1,10 +1,14 @@
 import { BrowserWindow, BrowserWindowConstructorOptions } from 'electron'
 import { join } from 'path'
 import { is } from '@electron-toolkit/utils'
+import type {Lab6FormData} from "../types";
+import CringeIpc from 'node-ipc'
+// @ts-ignore
+const ipc = CringeIpc.default as typeof CringeIpc
 
 const defaultProps: BrowserWindowConstructorOptions = {
-  width: 900,
-  height: 670,
+  width: 400,
+  height: 370,
   show: false,
   autoHideMenuBar: true,
   webPreferences: {
@@ -33,7 +37,25 @@ class ObjectWindow2 extends BrowserWindow {
     } else {
       this.loadFile(file)
     }
+
+    this.configureNodeIpc()
+
   }
+
+  private configureNodeIpc(){
+    ipc.connectTo('lab6', () => {
+      ipc.of.lab6.on('connect', () => {
+        this.webContents.send('logger', 'connected to lab6')
+      })
+    })
+
+    ipc.of.lab6.on('executeButtonClicked', (data: Lab6FormData) => {
+      this.webContents.send('executeButtonClicked', data)
+    })
+
+  }
+
+
 }
 
 export default ObjectWindow2
