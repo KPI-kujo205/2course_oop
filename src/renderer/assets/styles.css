@@ -1,0 +1,43 @@
+@import "reset.css";
+
+:root{
+  --btn-primary: #8959D5;
+  --btn-primary-hover: #774DD6;
+  --btn-primary-active: #6840D7;
+  --btn-primary-disabled: #C0C0C0;
+}
+
+body{
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button{
+  background:var(--btn-primary);
+  &:hover{
+    background:var(--btn-primary-hover);
+  }
+  &:active{
+    background:var(--btn-primary-active);
+  }
+  color: white;
+  padding: .5rem 1rem;
+}
+
+
+.actions-section{
+  display: flex;
+  flex-wrap:wrap ;
+  gap: .5rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.field-container{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .5rem;
+}
