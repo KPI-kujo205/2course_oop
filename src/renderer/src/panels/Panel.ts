@@ -26,8 +26,8 @@ abstract class Panel {
   subscribers: Subscriber[] = []
   static index: number = 0
 
-  constructor(panel: TPanel, _panelContainer: HTMLDivElement) {
-    this.panelIndex = Panel.index++
+  constructor(panel: TPanel, _panelContainer: HTMLDivElement, index: number) {
+    this.panelIndex = index
     this.panelContainer = _panelContainer
     this.name = panel.name
     this.fields = panel.fields.map((field: Field) => this.generateHTMLField(field))

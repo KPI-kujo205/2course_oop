@@ -13,15 +13,34 @@
   </head>
 
   <body>
-    <section class="initial-container hide"></section>
-    <section class="form-with-stepper show">
+    <section class="initial-container">
+      <h1>
+        РЕЄСТРАЦІЙНА ФОРМА
+      </h1>
+      <button class="start-btn" >
+        Пройти
+      </button>
+    </section>
+
+    <section class="form-with-stepper hide">
       <div class="stepper"></div>
       <h2 class="panel-title">
 
       </h2>
       <section class="form-container"></section>
     </section>
-    <section class="final-container hide"></section>
+
+    <section class="final-container hide">
+      <h2>
+        Результати проходження форми
+      </h2>
+      <div class="results">
+        <pre class="form-results"></pre>
+      </div>
+      <button class="start-btn" >
+        Пройти ще раз
+      </button>
+    </section>
     <script type="module" src="./src/RGR.ts"></script>
   </body>
 </html>

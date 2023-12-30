@@ -88,10 +88,24 @@ button{
 
 }
 
-.show{
-  display: flex;
+.final-container{
+  height: 90%;
+  & .results{
+    height: 80%;
+    overflow-y: scroll;
+  }
+  & h2{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
 }
 
 .hide{
   display: none;
+}
+
+.start-btn{
+  margin-top: .5rem;
 }

@@ -1,0 +1,110 @@
+{
+  "panels":[
+    {
+      "name":"Особиста інформація",
+      "fields":[
+        {
+          "label":"Ім'я",
+          "initialValue":""
+        },
+        {
+          "label":"Прізвище",
+          "initialValue":""
+        },
+        {
+          "label":"По-батькові",
+          "initialValue":""
+        },
+        {
+          "label":"Вік",
+          "initialValue":"18"
+        }
+      ]
+    },
+    {
+      "name":"Контактна інформація",
+      "fields":[
+        {
+          "label":"Email",
+          "initialValue":""
+        },
+        {
+          "label":"Телефон",
+          "initialValue":""
+        }
+      ]
+    },
+    {
+      "name":"Адреса",
+      "fields":[
+        {
+          "label":"Країна",
+          "initialValue":""
+        },
+        {
+          "label":"Місто",
+          "initialValue":""
+        },
+        {
+          "label":"Адреса",
+          "initialValue":""
+        },
+        {
+          "label":"Поштовий індекс",
+          "initialValue":""
+        }
+      ]
+    },
+    {
+      "name":"Пароль",
+      "fields":[
+        {
+          "label":"Пароль",
+          "initialValue":""
+        },
+        {
+          "label":"Підтвердіть пароль",
+          "initialValue":""
+        }
+      ]
+    },
+    {
+      "name":"Попередній досвід",
+      "fields":[
+        {
+          "label":"Останнє місце роботи",
+          "initialValue":""
+        },
+        {
+          "label":"Посада",
+          "initialValue":""
+        },
+        {
+          "label":"Тривалість роботи (у місяцях)",
+          "initialValue":""
+        }
+      ]
+    },
+    {
+      "name":"Додаткова інформація",
+      "fields":[
+        {
+          "label":"Інтереси",
+          "initialValue":""
+        },
+        {
+          "label":"Дата народження",
+          "initialValue":""
+        },
+        {
+          "label":"Стать",
+          "initialValue":""
+        },
+        {
+          "label":"Вибір мови",
+          "initialValue":""
+        }
+      ]
+    }
+  ]
+}

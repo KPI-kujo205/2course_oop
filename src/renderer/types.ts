@@ -7,6 +7,16 @@ export type Panel = {
   fields: Field[]
 }
 
+type TResultField = {
+  label: string
+  value: string
+}
+
+export type TPanelResult = {
+  name: string
+  fields: TResultField[]
+}
+
 export type Field = {
   label: string
   initialValue: string
