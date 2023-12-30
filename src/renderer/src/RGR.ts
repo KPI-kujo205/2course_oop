@@ -6,10 +6,10 @@ import LastPanel from './panels/LastPanel'
 import { config } from '../configuration'
 class RGR {
   panels: Panel[] = []
-  currentPanel: Panel
+  currentPanel!: Panel
   constructor() {
     this.createPanels()
-    this.currentPanel = this.panels[0]
+    this.handlePanelChange(0)
     this.currentPanel.show()
   }
   private createPanels() {
@@ -20,13 +20,13 @@ class RGR {
       let panel: Panel
       switch (i) {
         case panelsNumber - 1:
-          panel = new LastPanel(config.panels[i].fields, panelContainer)
+          panel = new LastPanel(config.panels[i], panelContainer)
           break
         case 0:
-          panel = new InitialPanel(config.panels[i].fields, panelContainer)
+          panel = new InitialPanel(config.panels[i], panelContainer)
           break
         default:
-          panel = new MediumPanel(config.panels[i].fields, panelContainer)
+          panel = new MediumPanel(config.panels[i], panelContainer)
       }
 
       panel.subscribeToPanelEvent('nextButtonClick', this.handleNextButtonClick.bind(this))
@@ -38,17 +38,42 @@ class RGR {
   }
 
   handleNextButtonClick() {
-    this.handleButtonChange(this.currentPanel.panelIndex + 1)
+    this.handlePanelChange(this.currentPanel.panelIndex + 1)
   }
   handlePrevButtonClick() {
-    this.handleButtonChange(this.currentPanel.panelIndex - 1)
+    this.handlePanelChange(this.currentPanel.panelIndex - 1)
   }
-  handleButtonChange(index: number) {
+  handlePanelChange(index: number) {
     this.currentPanel = this.panels[index]
     this.currentPanel.visited = true
     this.currentPanel.show()
+
+    const panelTitle = document.querySelector('.panel-title') as HTMLHeadingElement
+    panelTitle.innerHTML = this.currentPanel.name
+
+    this.repaintStepper()
+  }
+
+  private repaintStepper() {
+    const stepper = document.querySelector('.stepper') as HTMLDivElement
+    stepper.innerHTML = ''
+    for (const panel of this.panels) {
+      const circle = document.createElement('div')
+      circle.innerHTML = `${panel.panelIndex + 1}`
+      circle.classList.add('circle')
+      circle.addEventListener('click', () => this.handlePanelChange(panel.panelIndex))
+      if (panel.visited) {
+        circle.classList.add('visited')
+      }
+      if (panel.panelIndex === this.currentPanel.panelIndex) {
+        circle.classList.add('active')
+      }
+      stepper.appendChild(circle)
+    }
   }
   handleFinishButtonClick() {
+    const panelContainer = document.querySelector('.form-with-stepper') as HTMLDivElement
+    panelContainer.classList.add('hide')
     console.log('finishing', this.panels)
   }
   handleCancelButtonClick() {

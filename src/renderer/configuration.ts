@@ -30,6 +30,26 @@ export const config: Config = {
         { label: 'Вік', initialValue: '18' },
         { label: 'Пяууууууууууу', initialValue: 'іфвівф' }
       ]
+    },
+    {
+      name: 'Типу там отаку',
+      fields: [
+        { label: 'Ну я', initialValue: '' },
+        { label: 'Ну ти', initialValue: '' },
+        { label: 'Ну ми', initialValue: '' },
+        { label: 'Вік', initialValue: '18' },
+        { label: 'Пяууууууууууу', initialValue: 'іфвівф' }
+      ]
+    },
+    {
+      name: 'Типу там отаку',
+      fields: [
+        { label: 'Ну я', initialValue: '' },
+        { label: 'Ну ти', initialValue: '' },
+        { label: 'Ну ми', initialValue: '' },
+        { label: 'Вік', initialValue: '18' },
+        { label: 'Пяууууууууууу', initialValue: 'іфвівф' }
+      ]
     }
   ]
 }

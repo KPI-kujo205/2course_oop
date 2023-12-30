@@ -2,7 +2,7 @@ export type Config = {
   panels: Panel[]
 }
 
-type Panel = {
+export type Panel = {
   name: string
   fields: Field[]
 }
@@ -12,7 +12,7 @@ export type Field = {
   initialValue: string
 }
 
-export type HTMLField={
+export type HTMLField = {
   fieldContainer: HTMLDivElement
   label: HTMLLabelElement
   input: HTMLInputElement

@@ -1,5 +1,4 @@
-import { HTMLField, Field } from '../../types'
-
+import { HTMLField, Field, Panel as TPanel } from '../../types'
 const events = [
   'prevButtonClick',
   'nextButtonClick',
@@ -19,6 +18,7 @@ class Subscriber {
 }
 
 abstract class Panel {
+  name: string
   visited: boolean = false
   fields: HTMLField[]
   panelContainer: HTMLDivElement
@@ -26,10 +26,11 @@ abstract class Panel {
   subscribers: Subscriber[] = []
   static index: number = 0
 
-  constructor(fields: Field[], panel: HTMLDivElement) {
+  constructor(panel: TPanel, _panelContainer: HTMLDivElement) {
     this.panelIndex = Panel.index++
-    this.panelContainer = panel
-    this.fields = fields.map((field: Field) => this.generateHTMLField(field))
+    this.panelContainer = _panelContainer
+    this.name = panel.name
+    this.fields = panel.fields.map((field: Field) => this.generateHTMLField(field))
     this.generateActionsSection()
   }
 
@@ -85,7 +86,7 @@ abstract class Panel {
 
   protected createNextButton() {
     const nextButton = document.createElement('button')
-    nextButton.innerText = 'Наступна секція'
+    nextButton.innerText = 'Наступна секція ⟶'
     nextButton.addEventListener('click', () => {
       this.subscribers.forEach((subscriber) => {
         if (subscriber.type === 'nextButtonClick') {
@@ -98,7 +99,7 @@ abstract class Panel {
 
   protected createPrevButton() {
     const nextButton = document.createElement('button')
-    nextButton.innerText = 'Попередня секція'
+    nextButton.innerText = '⟵ Попередня секція'
     nextButton.addEventListener('click', () => {
       this.subscribers.forEach((subscriber) => {
         if (subscriber.type === 'prevButtonClick') {
